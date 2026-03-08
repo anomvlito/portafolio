@@ -10,7 +10,7 @@ const projects = [
     description: "Panadería y Pizzería con productos artesanales. Comida real y de fermentación lenta. Interfaz de pedidos optimizada y catálogo dinámico.",
     tags: ["Next.js", "TailwindCSS", "E-commerce"],
     url: "https://serendipia-beta.vercel.app/",
-    color: "from-orange-500/20 to-red-500/20",
+    color: "from-white/10 to-white/5",
     image: "/projects/serendipia.png"
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     description: "Rico, casero, vegan. Tienda en línea de productos veganos artesanales con un diseño limpio, moderno y orientado a la conversión.",
     tags: ["Next.js", "Frontend", "UI/UX"],
     url: "https://vegan-neighbor.vercel.app/",
-    color: "from-green-500/20 to-emerald-500/20",
+    color: "from-neutral-500/10 to-neutral-400/5",
     image: "/projects/vegan.png"
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     description: "Taller automotriz especializado en desabolladura y pintura. Landing page corporativa que transmite confianza, muestra servicios y facilita el contacto rápido.",
     tags: ["React", "Landing Page", "Performance"],
     url: "https://princesadelcolor.vercel.app/",
-    color: "from-blue-500/20 to-purple-500/20",
+    color: "from-zinc-500/10 to-zinc-400/5",
     image: "/projects/princesa.png"
   }
 ];

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #06b6d4;
-  --color-secondary: #8b5cf6;
-  --color-background: #030712;
-  --color-surface: #111827;
-  --color-foreground: #f3f4f6;
-  --color-muted: #9ca3af;
-  --color-glass: rgba(17, 24, 39, 0.6);
-  --color-glass-border: rgba(255, 255, 255, 0.05);
+  --color-primary: #ffffff;
+  --color-secondary: #a3a3a3;
+  --color-background: #000000;
+  --color-surface: #0a0a0a;
+  --color-foreground: #fafafa;
+  --color-muted: #737373;
+  --color-glass: rgba(10, 10, 10, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -22,24 +22,24 @@ body {
 
 .glass {
   background: var(--color-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--color-glass-border);
-  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(180deg, #ffffff 0%, #737373 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, #171717, #000000);
 }
 
 ::selection {
-  background: var(--color-secondary);
-  color: white;
+  background: #ffffff;
+  color: #000000;
 }
