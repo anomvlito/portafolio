@@ -1,0 +1,20 @@
+"use client";
+
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes";
+import * as React from "react";
+
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Renderea null para evitar Hydration mismatch en Next.js
+    return <>{children}</>;
+  }
+
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}

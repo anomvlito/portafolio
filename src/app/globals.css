@@ -1,45 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ffffff;
-  --color-secondary: #a3a3a3;
-  --color-background: #000000;
-  --color-surface: #0a0a0a;
-  --color-foreground: #fafafa;
-  --color-muted: #737373;
-  --color-glass: rgba(10, 10, 10, 0.7);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+}
+
+:root {
+  /* LIGHT MODE (Default) */
+  --primary: #000000;
+  --secondary: #525252;
+  --background: #fdfdfd;
+  --foreground: #171717;
+  --glass: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --gradient-start: #000000;
+  --gradient-end: #525252;
+}
+
+.dark {
+  /* DARK MODE */
+  --primary: #ffffff;
+  --secondary: #a3a3a3;
+  --background: #050505;
+  --foreground: #f5f5f5;
+  --glass: rgba(20, 20, 20, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --gradient-start: #ffffff;
+  --gradient-end: #a3a3a3;
 }
 
 body {
   margin: 0;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--background);
+  color: var(--foreground);
   overflow-x: hidden;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .glass {
-  background: var(--color-glass);
+  background: var(--glass);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--color-glass-border);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .text-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, #737373 100%);
+  background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient {
-  background: linear-gradient(135deg, #171717, #000000);
+  background: linear-gradient(135deg, var(--background), var(--secondary));
 }
 
 ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: var(--primary);
+  color: var(--background);
 }
