@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Database, Code, Activity } from "lucide-react";
+import { ExternalLink, Database, Code } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -78,8 +78,8 @@ export default function Projects() {
               
               {/* Image or Abstraction render header */}
               {project.isInternal ? (
-                <Link href={project.url} className={\`block relative h-56 w-full bg-gradient-to-br \${project.color} overflow-hidden border-b border-white/5 flex flex-col items-center justify-center\`}>
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url(\\\"/noise.png\\\")" }} />
+                <Link href={project.url} className={`block relative h-56 w-full bg-gradient-to-br ${project.color} overflow-hidden border-b border-white/5 flex flex-col items-center justify-center`}>
+                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('/noise.png')" }} />
                   <Database className="w-12 h-12 text-white/20 mb-2 group-hover:scale-110 group-hover:text-primary transition-all duration-700" />
                   <span className="text-xs uppercase font-bold text-white/40 tracking-widest">Login Required App</span>
                   <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -88,7 +88,7 @@ export default function Projects() {
                 <a href={project.url} target="_blank" rel="noreferrer" className="block relative h-56 w-full bg-gradient-to-br overflow-hidden border-b border-white/5">
                   <Image 
                     src={project.image!}
-                    alt={\`Captura de pantalla de \${project.title}\`}
+                    alt={`Captura de pantalla de ${project.title}`}
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'top' }}
                     className="group-hover:scale-105 transition-transform duration-700 ease-in-out"
