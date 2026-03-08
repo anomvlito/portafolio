@@ -1,10 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Database, Code, Activity } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
+  {
+    title: "Plataforma Centro de Investigación CECAN",
+    description: "MVP de Sistema de Gestión Científica. Cuenta con lectura e integración automática de métricas JCR, redes en grafos 3D y diagramas Gantt.",
+    tags: ["SaaS / B2B", "FastAPI", "Vue 3", "Supabase"],
+    url: "/proyectos/cecan",
+    color: "from-neutral-800 to-black",
+    isInternal: true,
+  },
   {
     title: "Serendipia Pan Pizzas",
     description: "Panadería y Pizzería con productos artesanales. Comida real y de fermentación lenta. Interfaz de pedidos optimizada y catálogo dinámico.",
@@ -42,7 +51,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Proyectos <span className="text-gradient">Destacados</span>
+            Proyectos & <span className="text-gradient">Casos de Estudio</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +60,7 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="text-foreground/70 max-w-2xl mx-auto"
           >
-            Una selección de mis últimos trabajos. Cada proyecto refleja un enfoque en la calidad técnica y la excelencia en diseño.
+            Sistemas B2B, automatización, E-commerces y Landings. Desde aplicaciones bajo login empresarial hasta vitrinas al público.
           </motion.p>
         </div>
 
@@ -66,16 +75,27 @@ export default function Projects() {
               whileHover={{ y: -5 }}
               className="glass rounded-3xl overflow-hidden flex flex-col group border border-white/10"
             >
-              <a href={project.url} target="_blank" rel="noreferrer" className="block relative h-56 w-full bg-gradient-to-br overflow-hidden border-b border-white/5">
-                <Image 
-                  src={project.image}
-                  alt={`Captura de pantalla de ${project.title}`}
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'top' }}
-                  className="group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                />
-                <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
-              </a>
+              
+              {/* Image or Abstraction render header */}
+              {project.isInternal ? (
+                <Link href={project.url} className={\`block relative h-56 w-full bg-gradient-to-br \${project.color} overflow-hidden border-b border-white/5 flex flex-col items-center justify-center\`}>
+                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url(\\\"/noise.png\\\")" }} />
+                  <Database className="w-12 h-12 text-white/20 mb-2 group-hover:scale-110 group-hover:text-primary transition-all duration-700" />
+                  <span className="text-xs uppercase font-bold text-white/40 tracking-widest">Login Required App</span>
+                  <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
+                </Link>
+              ) : (
+                <a href={project.url} target="_blank" rel="noreferrer" className="block relative h-56 w-full bg-gradient-to-br overflow-hidden border-b border-white/5">
+                  <Image 
+                    src={project.image!}
+                    alt={\`Captura de pantalla de \${project.title}\`}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'top' }}
+                    className="group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                  />
+                  <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
+                </a>
+              )}
 
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
@@ -92,15 +112,17 @@ export default function Projects() {
                 </div>
 
                 <div className="flex items-center gap-4 mt-auto">
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="flex-1 glass text-center py-2.5 rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-primary hover:text-background hover:border-transparent transition-all"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Visitar Sitio
-                  </a>
+                  {project.isInternal ? (
+                    <Link href={project.url} className="flex-1 glass text-center py-2.5 rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-primary hover:text-background hover:border-transparent transition-all">
+                      <Code className="w-4 h-4" />
+                      Ver Caso de Estudio
+                    </Link>
+                  ) : (
+                    <a href={project.url} target="_blank" rel="noreferrer" className="flex-1 glass text-center py-2.5 rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-primary hover:text-background hover:border-transparent transition-all">
+                      <ExternalLink className="w-4 h-4" />
+                      Visitar Sitio
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
