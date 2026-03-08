@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
@@ -10,21 +10,24 @@ const projects = [
     description: "Panadería y Pizzería con productos artesanales. Comida real y de fermentación lenta. Interfaz de pedidos optimizada y catálogo dinámico.",
     tags: ["Next.js", "TailwindCSS", "E-commerce"],
     url: "https://serendipia-beta.vercel.app/",
-    color: "from-orange-500/20 to-red-500/20"
+    color: "from-orange-500/20 to-red-500/20",
+    image: "/projects/serendipia.png"
   },
   {
     title: "Vegan Neighbor",
     description: "Rico, casero, vegan. Tienda en línea de productos veganos artesanales con un diseño limpio, moderno y orientado a la conversión.",
     tags: ["Next.js", "Frontend", "UI/UX"],
     url: "https://vegan-neighbor.vercel.app/",
-    color: "from-green-500/20 to-emerald-500/20"
+    color: "from-green-500/20 to-emerald-500/20",
+    image: "/projects/vegan.png"
   },
   {
     title: "Princesa del Color",
     description: "Taller automotriz especializado en desabolladura y pintura. Landing page corporativa que transmite confianza, muestra servicios y facilita el contacto rápido.",
     tags: ["React", "Landing Page", "Performance"],
     url: "https://princesadelcolor.vercel.app/",
-    color: "from-blue-500/20 to-purple-500/20"
+    color: "from-blue-500/20 to-purple-500/20",
+    image: "/projects/princesa.png"
   }
 ];
 
@@ -61,14 +64,18 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15, duration: 0.6 }}
               whileHover={{ y: -5 }}
-              className="glass rounded-3xl overflow-hidden flex flex-col group"
+              className="glass rounded-3xl overflow-hidden flex flex-col group border border-white/10"
             >
-              {/* Thumbnail Placeholder with Gradient */}
-              <div className={`h-48 w-full bg-gradient-to-br ${project.color} relative overflow-hidden flex items-center justify-center border-b border-white/5`}>
-                <div className="absolute inset-0 bg-background/50 group-hover:bg-background/20 transition-colors duration-500" />
-                <h3 className="text-2xl font-bold opacity-50 absolute mix-blend-overlay">{project.title}</h3>
-                <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]" />
-              </div>
+              <a href={project.url} target="_blank" rel="noreferrer" className="block relative h-56 w-full bg-gradient-to-br overflow-hidden border-b border-white/5">
+                <Image 
+                  src={project.image}
+                  alt={`Captura de pantalla de ${project.title}`}
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                  className="group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                />
+                <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
+              </a>
 
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
@@ -92,7 +99,7 @@ export default function Projects() {
                     className="flex-1 glass text-center py-2.5 rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-primary hover:text-background hover:border-transparent transition-all"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    Ver Sitio
+                    Visitar Sitio
                   </a>
                 </div>
               </div>
