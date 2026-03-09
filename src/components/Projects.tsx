@@ -37,6 +37,22 @@ const projects = [
     url: "https://princesadelcolor.vercel.app/",
     color: "from-zinc-500/10 to-zinc-400/5",
     image: "/projects/princesa.png"
+  },
+  {
+    title: "Dittmar Estructuras Metálicas",
+    description: "Empresa de construcción en acero y metales. Diseño industrial premium, enfocado en mostrar su portafolio de manera robusta y métricas de toneladas de acero.",
+    tags: ["Next.js", "SEO", "Generación de Leads"],
+    url: "https://dittmarestructurasmetalicas-beta.vercel.app/",
+    color: "from-yellow-500/10 to-yellow-600/5",
+    image: "/projects/dittmar.webp"
+  },
+  {
+    title: "Masoy Rehabilitación",
+    description: "Centro de masoterapia y rehabilitación física. Una plataforma SPA moderna orientada a captación local y agenda directa por Setmore y WhatsApp.",
+    tags: ["Next.js", "SPA", "Reservas Web"],
+    url: "https://rocio-masoterapia.vercel.app/",
+    color: "from-stone-500/10 to-stone-400/5",
+    image: "/projects/rocio.webp"
   }
 ];
 
